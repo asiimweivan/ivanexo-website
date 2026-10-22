@@ -6,15 +6,12 @@ const NAV_ITEMS = [
   {
     label: "Company", children: [
       { label: "About Us", href: "#about" },
-      { label: "Our Team", href: "#team" },
-      { label: "Our Partners", href: "#partners" },
     ]
   },
   {
     label: "Product", children: [
       { label: "Trackly App", href: "#trackly" },
       { label: "How It Works", href: "#how" },
-      { label: "Testimonials", href: "#testimonials" },
       { label: "Download App", href: "#download" },
     ]
   },
@@ -26,7 +23,8 @@ const NAV_ITEMS = [
   },
   {
     label: "Legal", children: [
-      { label: "Privacy Policy", href: "#privacy" },
+      { label: "Privacy Policy", href: "https://trackly.ivanexo.com/privacy" },
+      { label: "Delete Account", href: "https://trackly.ivanexo.com/delete-account" },
       { label: "Terms of Service", href: "#terms" },
     ]
   },
@@ -152,7 +150,7 @@ export default function Navbar() {
         {/* RIGHT */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
           {!isMobile && (
-            <a href="#trackly"
+            <a href="#download"
               style={{ backgroundColor: "#00B4A6", color: "#ffffff", padding: "0.6rem 1.4rem", borderRadius: "6px", fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", transition: "all 0.2s", whiteSpace: "nowrap" }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; }}>
@@ -272,7 +270,7 @@ export default function Navbar() {
 
           {/* CTA */}
           <div style={{ padding: "1rem 1.25rem 2rem", borderTop: "1px solid rgba(11,31,58,0.06)", marginTop: "0.5rem" }}>
-            <a href="#trackly" onClick={() => setMenuOpen(false)}
+            <a href="#download" onClick={() => setMenuOpen(false)}
               style={{
                 display: "block", textAlign: "center",
                 backgroundColor: "#00B4A6", color: "#ffffff",
@@ -281,17 +279,7 @@ export default function Navbar() {
                 textDecoration: "none", marginBottom: "0.75rem",
                 boxShadow: "0 4px 16px rgba(0,180,166,0.3)",
               }}>
-              Download Trackly Free
-            </a>
-            <a href="/admin/login" onClick={() => setMenuOpen(false)}
-              style={{
-                display: "block", textAlign: "center",
-                backgroundColor: "transparent", color: "rgba(11,31,58,0.5)",
-                padding: "0.75rem", borderRadius: "12px",
-                fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.9rem",
-                textDecoration: "none", border: "1px solid rgba(11,31,58,0.1)",
-              }}>
-              Admin Portal
+              Get Trackly
             </a>
           </div>
         </div>

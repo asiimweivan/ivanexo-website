@@ -15,7 +15,7 @@ export default function FloatingButtons() {
 
       {/* WhatsApp */}
       <button
-        onClick={() => window.open("https://wa.me/250700000000", "_blank")}
+        onClick={() => window.open("https://wa.me/250785004175", "_blank")}
         title="Chat on WhatsApp"
         style={{
           width: 52, height: 52, borderRadius: "50%",

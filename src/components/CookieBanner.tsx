@@ -32,7 +32,7 @@ export default function CookieBanner() {
           <h4 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.4rem" }}>We use cookies</h4>
           <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
             We use cookies to improve your experience. By using Ivanexo, you agree to our{" "}
-            <a href="#privacy" style={{ color: "#00B4A6", textDecoration: "none" }}>Privacy Policy</a>.
+            <a href="https://trackly.ivanexo.com/privacy" style={{ color: "#00B4A6", textDecoration: "none" }}>Privacy Policy</a>.
           </p>
         </div>
       </div>

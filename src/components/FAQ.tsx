@@ -1,16 +1,17 @@
 ﻿import { useEffect, useRef, useState } from "react";
 
 const faqs = [
-  { q: "How much does Trackly cost?", a: "Trackly has three plans. Ibanze starts at RWF 1,000/month — the most affordable way to get your business organized. Iterambere is RWF 5,000/month and Inkunga is RWF 10,000/month. All plans are paid monthly via MTN Mobile Money." },
-  { q: "Does Trackly work without internet?", a: "Trackly is a mobile app that requires internet for initial setup, login, and data sync. Some basic features may work with limited connectivity. Full offline mode is on our roadmap and coming in a future update." },
-  { q: "Which languages does Trackly support?", a: "Trackly supports English, Kinyarwanda, and French. You can switch languages anytime from the settings menu." },
-  { q: "How do I pay for my subscription?", a: "All payments are made via MTN Mobile Money. No bank card needed. You pay monthly and can cancel anytime with no penalties." },
-  { q: "Is my business data secure?", a: "Yes. Ivanexo Ltd is registered with the Rwanda Data Protection Office (DPO) as both a Data Controller and Data Processor. Your data is encrypted and never shared with third parties." },
-  { q: "Can I use Trackly on multiple phones?", a: "Yes depending on your plan. Iterambere supports up to 3 users and Inkunga supports up to 5 users on the same business account." },
-  { q: "What kind of businesses can use Trackly?", a: "Trackly is built for Rwandan small and medium businesses — shops, boutiques, salons, groceries, electronics stores, pharmacies, restaurants and more." },
-  { q: "How do I download Trackly?", a: "Trackly is available on the Google Play Store for Android. Search for Trackly or visit our website to get the direct download link." },
-  { q: "Can I become a Trackly agent?", a: "Yes. We are building an agent network across Rwanda. Agents earn commissions for every business they onboard. Contact us via the form on this website to apply." },
-  { q: "How do I get support?", a: "You can reach us via the contact form on this website, by email at hello@ivanexo.rw, or through WhatsApp. Our team responds within 24 hours." },
+  { q: "How much does Trackly cost?", a: "The Ubuntu plan is free forever and includes up to 20 products. Paid plans are Ibanze at RWF 3,000 per month, Iterambere at RWF 6,000 per month and Agaciro at RWF 10,000 per month. Yearly billing includes 2 months free." },
+  { q: "Do I need internet to use Trackly?", a: "Trackly needs an internet connection to sign in and to keep your data safely saved online. Check the app for the latest on working with a weak connection." },
+  { q: "Which languages does Trackly support?", a: "Trackly supports English, Kinyarwanda and French. You can switch language any time in the app settings." },
+  { q: "How do I pay for a plan?", a: "You pay with MTN Mobile Money or Airtel Money. After you sign up, we e-mail you a secure payment link where you choose a plan and billing period. There are no contracts and you can cancel any time. Payments are processed by Paypack." },
+  { q: "Is my business data safe?", a: "Ivanexo LTD is registered with the Rwanda Data Protection Office (DPO). Your business data belongs to you. Our Privacy Policy explains what we collect and why, and you can ask us to delete your account and data at any time." },
+  { q: "Can my staff use Trackly too?", a: "Yes, on paid plans. Iterambere includes up to 2 staff accounts and Agaciro includes unlimited staff accounts. The free Ubuntu plan and Ibanze are for the business owner only." },
+  { q: "What kind of businesses can use Trackly?", a: "Trackly is built for small and medium businesses in Rwanda: shops, boutiques, salons, groceries, electronics stores, pharmacies, restaurants and more." },
+  { q: "How do I get Trackly?", a: "Trackly is an Android app. We are releasing it on Google Play. Write to support@ivanexo.com or message us on WhatsApp and we will tell you as soon as it is ready for you." },
+  { q: "Can I become a Trackly agent?", a: "We are planning an agent programme for people who help businesses get started on Trackly. Write to info@ivanexo.com to register your interest." },
+  { q: "How do I delete my account?", a: "Open the delete account page at trackly.ivanexo.com/delete-account and follow the steps, or write to support@ivanexo.com from the e-mail address you registered with." },
+  { q: "How do I get support?", a: "E-mail support@ivanexo.com, message us on WhatsApp at +250 785 004 175, or use the contact form on this website." },
 ];
 
 export default function FAQ() {

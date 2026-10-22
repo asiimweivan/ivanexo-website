@@ -79,7 +79,7 @@ export default function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
-            <a href="#trackly" style={{
+            <a href="#download" style={{
               backgroundColor: "#00B4A6", color: "#ffffff",
               padding: "0.85rem 1.75rem", borderRadius: "8px",
               fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "0.95rem",
@@ -87,7 +87,7 @@ export default function Hero() {
             }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-2px)"; }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; }}>
-              Download Trackly Free
+              Get Trackly
             </a>
             <a href="#about" style={{
               backgroundColor: "transparent", color: "#ffffff",
@@ -104,10 +104,10 @@ export default function Hero() {
 
           <div style={{ display: "flex", alignItems: "center", gap: isMobile ? "1.5rem" : "2rem", flexWrap: "wrap" }}>
             {[
-              { value: "RWF 1K", label: "Starting Price" },
+              { value: "Free", label: "Starter Plan" },
               { value: "3", label: "Languages" },
-              { value: "MTN", label: "MoMo Ready" },
-              { value: "DPO", label: "Compliant" },
+              { value: "MoMo", label: "MTN & Airtel Pay" },
+              { value: "DPO", label: "Registered" },
             ].map(b => (
               <div key={b.label} style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.3rem", fontWeight: 700, color: "#00B4A6" }}>{b.value}</div>

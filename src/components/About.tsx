@@ -10,7 +10,7 @@ const stats = [
 const values = [
   { icon: "🌍", title: "Built for Africa", desc: "Designed from the ground up for African businesses - local currency, local languages, local needs." },
   { icon: "⚡", title: "Simple & Fast", desc: "No training needed. Trackly works the way your business works - intuitive, fast, and reliable." },
-  { icon: "🔒", title: "Secure & Compliant", desc: "DPO registered, BNR aware, and built with data privacy at its core." },
+  { icon: "🔒", title: "Secure & Compliant", desc: "Ivanexo LTD is registered with the Rwanda Data Protection Office, and Trackly is built with data privacy in mind." },
   { icon: "🚀", title: "Built to Scale", desc: "From a single shop to a growing enterprise - Ivanexo grows with you." },
 ];
 

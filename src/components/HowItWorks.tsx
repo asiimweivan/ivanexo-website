@@ -1,7 +1,7 @@
 ﻿import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  { number: "01", title: "Download Trackly", desc: "Get the app free from Google Play Store. Works on any Android phone.", color: "#00B4A6" },
+  { number: "01", title: "Download Trackly", desc: "Get the Trackly app on your Android phone and sign up for the free Ubuntu plan.", color: "#00B4A6" },
   { number: "02", title: "Set Up Your Shop", desc: "Add your products, set prices, and configure your business in minutes.", color: "#F0A500" },
   { number: "03", title: "Start Selling", desc: "Record sales, track stock, and monitor your cashflow in real time.", color: "#00B4A6" },
   { number: "04", title: "Grow Your Business", desc: "Use reports and insights to make smarter decisions every day.", color: "#F0A500" },

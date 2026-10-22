@@ -5,7 +5,7 @@ const features = [
   { icon: "💰", title: "Sales Tracking", desc: "Record every sale instantly. See daily, weekly and monthly revenue at a glance." },
   { icon: "📊", title: "Cashflow Monitor", desc: "Know exactly what is coming in and going out. Stay on top of your business finances." },
   { icon: "👥", title: "Customer Records", desc: "Build your customer list, track purchases, and manage credit with ease." },
-  { icon: "📱", title: "Works Offline", desc: "No internet? No problem. Trackly works fully offline and syncs when you reconnect." },
+  { icon: "💬", title: "WhatsApp Receipts", desc: "Send receipts to your customers on WhatsApp straight from the sale." },
   { icon: "🌍", title: "3 Languages", desc: "Switch between English, Kinyarwanda and French anytime. Built for every Rwandan." },
 ];
 
@@ -93,7 +93,7 @@ export default function Trackly() {
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; }}>
               See Pricing
             </a>
-            <a href="https://play.google.com/store" target="_blank" rel="noreferrer" style={{
+            <a href="#contact" style={{
               backgroundColor: "transparent", color: "#ffffff",
               padding: "0.85rem 2rem", borderRadius: "8px",
               fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "1rem",
@@ -102,7 +102,7 @@ export default function Trackly() {
             }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.color = "#00B4A6"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "#ffffff"; }}>
-              Google Play
+              Contact Us
             </a>
           </div>
         </div>
