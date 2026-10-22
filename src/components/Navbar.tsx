@@ -3,20 +3,21 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#" },
+  { label: "Services", href: "#services" },
   {
     label: "Company", children: [
       { label: "About Us", href: "#about" },
     ]
   },
   {
-    label: "Product", children: [
+    label: "Trackly", children: [
       { label: "Trackly App", href: "#trackly" },
       { label: "How It Works", href: "#how" },
       { label: "Download App", href: "#download" },
     ]
   },
   {
-    label: "Plans", children: [
+    label: "Trackly Plans", children: [
       { label: "Pricing", href: "#pricing" },
       { label: "FAQ", href: "#faq" },
     ]
@@ -48,7 +49,7 @@ function DropdownMenu({ item }: { item: typeof NAV_ITEMS[0] }) {
   if (!item.children) {
     return (
       <a href={item.href}
-        style={{ color: "#0B1F3A", textDecoration: "none", fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.95rem", letterSpacing: "0.02em", transition: "color 0.2s", whiteSpace: "nowrap" }}
+        style={{ color: "#0B1F3A", textDecoration: "none", fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.95rem", letterSpacing: "0.02em", transition: "color 0.2s", whiteSpace: "nowrap" }}
         onMouseEnter={e => { e.currentTarget.style.color = "#00B4A6"; }}
         onMouseLeave={e => { e.currentTarget.style.color = "#0B1F3A"; }}>
         {item.label}
@@ -64,7 +65,7 @@ function DropdownMenu({ item }: { item: typeof NAV_ITEMS[0] }) {
         display: "flex", alignItems: "center", gap: "0.3rem",
         color: open ? "#00B4A6" : "#0B1F3A",
         background: "none", border: "none", cursor: "pointer",
-        fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.95rem",
+        fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.95rem",
         letterSpacing: "0.02em", transition: "color 0.2s", padding: 0, whiteSpace: "nowrap",
       }}>
         {item.label}
@@ -83,7 +84,7 @@ function DropdownMenu({ item }: { item: typeof NAV_ITEMS[0] }) {
           </div>
           {item.children.map(child => (
             <a key={child.label} href={child.href}
-              style={{ display: "flex", alignItems: "center", gap: "0.6rem", padding: "0.7rem 1rem", borderRadius: "8px", color: "#0B1F3A", textDecoration: "none", fontFamily: '"Satoshi", sans-serif', fontWeight: 500, fontSize: "0.9rem", transition: "all 0.15s" }}
+              style={{ display: "flex", alignItems: "center", gap: "0.6rem", padding: "0.7rem 1rem", borderRadius: "8px", color: "#0B1F3A", textDecoration: "none", fontFamily: '"Manrope", sans-serif', fontWeight: 500, fontSize: "0.9rem", transition: "all 0.15s" }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = "rgba(0,180,166,0.08)"; e.currentTarget.style.color = "#00B4A6"; }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#0B1F3A"; }}>
               <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#00B4A6", flexShrink: 0 }} />
@@ -150,11 +151,11 @@ export default function Navbar() {
         {/* RIGHT */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
           {!isMobile && (
-            <a href="#download"
-              style={{ backgroundColor: "#00B4A6", color: "#ffffff", padding: "0.6rem 1.4rem", borderRadius: "6px", fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", transition: "all 0.2s", whiteSpace: "nowrap" }}
+            <a href="#contact"
+              style={{ backgroundColor: "#00B4A6", color: "#ffffff", padding: "0.6rem 1.4rem", borderRadius: "6px", fontFamily: '"Manrope", sans-serif', fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", transition: "all 0.2s", whiteSpace: "nowrap" }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; }}>
-              Get Trackly
+              Contact Us
             </a>
           )}
 
@@ -200,7 +201,7 @@ export default function Navbar() {
                     style={{
                       display: "flex", alignItems: "center",
                       padding: "0.9rem 1rem", color: "#0B1F3A",
-                      textDecoration: "none", fontFamily: '"Clash Display", sans-serif',
+                      textDecoration: "none", fontFamily: '"Jost", sans-serif',
                       fontWeight: 700, fontSize: "1.1rem", borderRadius: "10px",
                       transition: "all 0.2s", marginBottom: "0.2rem",
                     }}
@@ -217,7 +218,7 @@ export default function Navbar() {
                         width: "100%", padding: "0.9rem 1rem",
                         background: mobileOpen === item.label ? "rgba(0,180,166,0.06)" : "none",
                         border: "none", cursor: "pointer",
-                        fontFamily: '"Clash Display", sans-serif', fontWeight: 700, fontSize: "1.1rem",
+                        fontFamily: '"Jost", sans-serif', fontWeight: 700, fontSize: "1.1rem",
                         color: mobileOpen === item.label ? "#00B4A6" : "#0B1F3A",
                         borderRadius: "10px", transition: "all 0.2s",
                       }}>
@@ -250,7 +251,7 @@ export default function Navbar() {
                               display: "flex", alignItems: "center", gap: "0.75rem",
                               padding: "0.85rem 1.25rem",
                               color: "#0B1F3A", textDecoration: "none",
-                              fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.95rem",
+                              fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.95rem",
                               borderBottom: i < item.children.length - 1 ? "1px solid rgba(11,31,58,0.05)" : "none",
                               transition: "all 0.15s",
                             }}
@@ -270,16 +271,16 @@ export default function Navbar() {
 
           {/* CTA */}
           <div style={{ padding: "1rem 1.25rem 2rem", borderTop: "1px solid rgba(11,31,58,0.06)", marginTop: "0.5rem" }}>
-            <a href="#download" onClick={() => setMenuOpen(false)}
+            <a href="#contact" onClick={() => setMenuOpen(false)}
               style={{
                 display: "block", textAlign: "center",
                 backgroundColor: "#00B4A6", color: "#ffffff",
                 padding: "1rem", borderRadius: "12px",
-                fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "1rem",
+                fontFamily: '"Manrope", sans-serif', fontWeight: 700, fontSize: "1rem",
                 textDecoration: "none", marginBottom: "0.75rem",
                 boxShadow: "0 4px 16px rgba(0,180,166,0.3)",
               }}>
-              Get Trackly
+              Contact Us
             </a>
           </div>
         </div>

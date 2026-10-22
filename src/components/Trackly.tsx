@@ -1,12 +1,13 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Package, Banknote, TrendingUp, Users, MessageCircle, Globe } from "lucide-react";
 
 const features = [
-  { icon: "📦", title: "Inventory Management", desc: "Track all your products, set low stock alerts, and never run out of your best sellers again." },
-  { icon: "💰", title: "Sales Tracking", desc: "Record every sale instantly. See daily, weekly and monthly revenue at a glance." },
-  { icon: "📊", title: "Cashflow Monitor", desc: "Know exactly what is coming in and going out. Stay on top of your business finances." },
-  { icon: "👥", title: "Customer Records", desc: "Build your customer list, track purchases, and manage credit with ease." },
-  { icon: "💬", title: "WhatsApp Receipts", desc: "Send receipts to your customers on WhatsApp straight from the sale." },
-  { icon: "🌍", title: "3 Languages", desc: "Switch between English, Kinyarwanda and French anytime. Built for every Rwandan." },
+  { Icon: Package, title: "Inventory Management", desc: "Track all your products, set low stock alerts, and never run out of your best sellers again." },
+  { Icon: Banknote, title: "Sales Tracking", desc: "Record every sale instantly. See daily, weekly and monthly revenue at a glance." },
+  { Icon: TrendingUp, title: "Cashflow Monitor", desc: "Know exactly what is coming in and going out. Stay on top of your business finances." },
+  { Icon: Users, title: "Customer Records", desc: "Build your customer list, track purchases, and manage credit with ease." },
+  { Icon: MessageCircle, title: "WhatsApp Receipts", desc: "Send receipts to your customers on WhatsApp straight from the sale." },
+  { Icon: Globe, title: "3 Languages", desc: "Switch between English, Kinyarwanda and French anytime. Built for every Rwandan." },
 ];
 
 export default function Trackly() {
@@ -33,14 +34,14 @@ export default function Trackly() {
 
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease" }}>
-          <span style={{ color: "#00B4A6", fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "1rem" }}>
+          <span style={{ color: "#00B4A6", fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "1rem" }}>
             Our Product
           </span>
-          <h2 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.2, marginBottom: "1.25rem" }}>
+          <h2 style={{ fontFamily: '"Jost", sans-serif', fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.2, marginBottom: "1.25rem" }}>
             Meet <span style={{ color: "#00B4A6" }}>Trackly</span>
           </h2>
-          <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", maxWidth: 580, margin: "0 auto" }}>
-            The smartest way for Rwandan SMEs to manage their business from a single mobile app.
+          <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "1.1rem", color: "rgba(255,255,255,0.6)", maxWidth: 580, margin: "0 auto" }}>
+            A mobile app for small businesses in Rwanda: stock, sales, customers and cash in one place.
           </p>
         </div>
 
@@ -58,9 +59,9 @@ export default function Trackly() {
             }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.backgroundColor = "rgba(0,180,166,0.05)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.03)"; }}>
-              <div style={{ fontSize: "2.2rem", marginBottom: "1rem" }}>{f.icon}</div>
-              <h3 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.6rem" }}>{f.title}</h3>
-              <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.9rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>{f.desc}</p>
+              <div style={{ marginBottom: "1.1rem" }}><f.Icon size={30} color="#00B4A6" strokeWidth={1.5} /></div>
+              <h3 style={{ fontFamily: '"Jost", sans-serif', fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.6rem" }}>{f.title}</h3>
+              <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "0.9rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.7 }}>{f.desc}</p>
             </div>
           ))}
         </div>
@@ -75,10 +76,10 @@ export default function Trackly() {
           opacity: visible ? 1 : 0, transition: "all 0.7s ease 0.6s",
         }}>
           <div>
-            <h3 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.8rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+            <h3 style={{ fontFamily: '"Jost", sans-serif', fontSize: "1.8rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
               Ready to grow your business?
             </h3>
-            <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1rem", color: "rgba(255,255,255,0.6)" }}>
+            <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "1rem", color: "rgba(255,255,255,0.6)" }}>
               Download Trackly free today. No credit card required.
             </p>
           </div>
@@ -86,7 +87,7 @@ export default function Trackly() {
             <a href="#pricing" style={{
               backgroundColor: "#00B4A6", color: "#ffffff",
               padding: "0.85rem 2rem", borderRadius: "8px",
-              fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "1rem",
+              fontFamily: '"Manrope", sans-serif', fontWeight: 700, fontSize: "1rem",
               textDecoration: "none", transition: "all 0.2s",
             }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-2px)"; }}
@@ -96,7 +97,7 @@ export default function Trackly() {
             <a href="#contact" style={{
               backgroundColor: "transparent", color: "#ffffff",
               padding: "0.85rem 2rem", borderRadius: "8px",
-              fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "1rem",
+              fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "1rem",
               textDecoration: "none", border: "1px solid rgba(255,255,255,0.2)",
               transition: "all 0.2s",
             }}

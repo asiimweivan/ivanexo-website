@@ -1,4 +1,43 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const DISPLAY = '"Jost", sans-serif';
+const BODY = '"Manrope", sans-serif';
+
+function PlayGlyph() {
+  return (
+    <svg width="26" height="28" viewBox="0 0 24 26" aria-hidden="true">
+      <path d="M1.4 1.1c-.2.3-.3.7-.3 1.2v21.4c0 .5.1.9.3 1.2L13.2 13 1.4 1.1z" fill="#00C3FF" />
+      <path d="M17 16.8 13.2 13 17 9.2l4.6 2.6c1.3.7 1.3 1.9 0 2.6L17 16.8z" fill="#FFD400" />
+      <path d="M1.4 24.9c.3.3.8.4 1.4.1l14.2-8.2-3.8-3.8L1.4 24.9z" fill="#FF3A44" />
+      <path d="M1.4 1.1 13.2 13 17 9.2 2.8 1C2.2.7 1.7.8 1.4 1.1z" fill="#00F076" />
+    </svg>
+  );
+}
+
+function AppleGlyph() {
+  return (
+    <svg width="24" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="#ffffff">
+      <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+    </svg>
+  );
+}
+
+function StoreButton({ glyph, small, big }: { glyph: JSX.Element; small: string; big: string }) {
+  return (
+    <div role="img" aria-label={`${big}, coming soon`} style={{
+      display: "inline-flex", alignItems: "center", gap: "0.85rem",
+      backgroundColor: "#000000", border: "1px solid rgba(255,255,255,0.35)",
+      borderRadius: 12, padding: "0.7rem 1.4rem 0.7rem 1.1rem", minWidth: 200,
+      textAlign: "left", cursor: "default",
+    }}>
+      {glyph}
+      <div>
+        <div style={{ fontFamily: BODY, fontSize: "0.68rem", color: "rgba(255,255,255,0.75)", letterSpacing: "0.04em" }}>{small}</div>
+        <div style={{ fontFamily: DISPLAY, fontSize: "1.3rem", fontWeight: 500, color: "#ffffff", lineHeight: 1.1 }}>{big}</div>
+      </div>
+    </div>
+  );
+}
 
 export default function DownloadCTA() {
   const [visible, setVisible] = useState(false);
@@ -11,66 +50,30 @@ export default function DownloadCTA() {
   }, []);
 
   return (
-    <section ref={ref} style={{
-      backgroundColor: "#0B1F3A",
-      padding: "100px 2.5rem",
-      position: "relative",
-      overflow: "hidden",
-    }}>
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(0,180,166,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,166,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 800, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,180,166,0.1) 0%, transparent 60%)", pointerEvents: "none" }} />
+    <section id="download" ref={ref} style={{ backgroundColor: "#0B1F3A", padding: "100px 1.5rem", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 800, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,180,166,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div style={{
-        maxWidth: 750, margin: "0 auto", textAlign: "center",
-        position: "relative", zIndex: 1,
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(30px)",
-        transition: "all 0.9s ease",
+        maxWidth: 750, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1,
+        opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)", transition: "all 0.9s cubic-bezier(.2,.7,.2,1)",
       }}>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", backgroundColor: "rgba(0,180,166,0.1)", border: "1px solid rgba(0,180,166,0.3)", borderRadius: "100px", padding: "0.4rem 1rem", marginBottom: "2rem" }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#00B4A6" }} />
-          <span style={{ color: "#00B4A6", fontFamily: '"Satoshi", sans-serif', fontSize: "0.85rem", fontWeight: 600, letterSpacing: "0.05em" }}>FREE TO START</span>
-        </div>
-
-        <h2 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: "1.5rem" }}>
-          Start Managing Your<br />
-          <span style={{ background: "linear-gradient(135deg, #00B4A6 0%, #00D4C4 50%, #F0A500 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            Business Today.
-          </span>
+        <h2 style={{ fontFamily: DISPLAY, fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)", fontWeight: 500, color: "#ffffff", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "1.4rem" }}>
+          Start managing your business with Trackly.
         </h2>
-
-        <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1.15rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.75, maxWidth: 500, margin: "0 auto 3rem" }}>
+        <p style={{ fontFamily: BODY, fontSize: "1.1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.8, maxWidth: 520, margin: "0 auto 2.75rem" }}>
           Start free with the Ubuntu plan. Upgrade only when your business needs more.
         </p>
 
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "2rem" }}>
-          <a href="#contact" style={{
-            display: "flex", alignItems: "center", gap: "0.75rem",
-            backgroundColor: "#00B4A6", color: "#ffffff",
-            padding: "1rem 2rem", borderRadius: "10px",
-            fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "1rem",
-            textDecoration: "none", transition: "all 0.2s",
-          }}
-            onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,180,166,0.4)"; }}
-            onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.2l12.24-11.96L13.05 8.64 3.18 23.76zm17.28-10.8c.32-.28.54-.7.54-1.2s-.22-.92-.54-1.2l-2.7-1.56-3.18 3.18 3.18 3.18 2.7-1.4zM2.1.48C1.86.76 1.68 1.12 1.68 1.56v20.88c0 .44.18.8.42 1.08l.06.06 11.7-11.7v-.24L2.16.42l-.06.06zm10.32 10.68l3.18-3.18-10.2-5.88L2.1.48l10.32 10.68z"/></svg>
-            Get Trackly for Android
-          </a>
-          <a href="#contact" style={{
-            display: "flex", alignItems: "center", gap: "0.75rem",
-            backgroundColor: "transparent", color: "#ffffff",
-            padding: "1rem 2rem", borderRadius: "10px",
-            fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "1rem",
-            textDecoration: "none", border: "1px solid rgba(255,255,255,0.2)",
-            transition: "all 0.2s",
-          }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.color = "#00B4A6"; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "#ffffff"; }}>
-            Contact Us
-          </a>
+        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+          <StoreButton glyph={<PlayGlyph />} small="Coming soon on" big="Google Play" />
+          <StoreButton glyph={<AppleGlyph />} small="Coming soon on the" big="App Store" />
         </div>
 
-        <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.35)" }}>
+        <p style={{ fontFamily: BODY, fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", marginBottom: "2rem" }}>
+          Want early access? <a href="#contact" style={{ color: "#00B4A6", fontWeight: 600, textDecoration: "none", borderBottom: "1px solid rgba(0,180,166,0.5)" }}>Contact us</a>.
+        </p>
+
+        <p style={{ fontFamily: BODY, fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>
           Free to start. No credit card. Pay with MTN MoMo or Airtel Money when you upgrade.
         </p>
       </div>

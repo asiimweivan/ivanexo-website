@@ -1,3 +1,4 @@
+import { ArrowUp } from "lucide-react";
 ﻿import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -45,7 +46,7 @@ export default function FloatingButtons() {
           }}
           onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(-3px)"; }}
           onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#0B1F3A"; e.currentTarget.style.transform = "translateY(0)"; }}>
-          ↑
+          <ArrowUp size={22} />
         </button>
       )}
     </div>

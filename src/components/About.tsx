@@ -1,138 +1,82 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Eye, Target, ShieldCheck, MessageCircle, Lock, Globe } from "lucide-react";
 
-const stats = [
-  { value: "2026", label: "Founded" },
-  { value: "3", label: "Languages" },
-  { value: "RWF", label: "Local Currency" },
-  { value: "SMEs", label: "Target Market" },
-];
+const DISPLAY = '"Jost", sans-serif';
+const BODY = '"Manrope", sans-serif';
 
 const values = [
-  { icon: "🌍", title: "Built for Africa", desc: "Designed from the ground up for African businesses - local currency, local languages, local needs." },
-  { icon: "⚡", title: "Simple & Fast", desc: "No training needed. Trackly works the way your business works - intuitive, fast, and reliable." },
-  { icon: "🔒", title: "Secure & Compliant", desc: "Ivanexo LTD is registered with the Rwanda Data Protection Office, and Trackly is built with data privacy in mind." },
-  { icon: "🚀", title: "Built to Scale", desc: "From a single shop to a growing enterprise - Ivanexo grows with you." },
+  { Icon: ShieldCheck, title: "Honesty first", text: "We tell you what is possible, what it costs and how long it takes. If we cannot do something well, we say so." },
+  { Icon: MessageCircle, title: "Plain communication", text: "No jargon and no surprises. You always know what we are working on and what comes next." },
+  { Icon: Lock, title: "Respect for your data", text: "We collect only what a project needs, and Ivanexo is registered with Rwanda's Data Protection Office." },
+  { Icon: Globe, title: "Built for Rwanda", text: "Products and support in English, Kinyarwanda and French, designed around how Rwandan businesses work and pay." },
+];
+
+const pillars = [
+  { Icon: Eye, title: "Our vision", text: "To be the technology partner that African businesses trust to grow." },
+  { Icon: Target, title: "Our mission", text: "To build honest, practical software and provide dependable IT support that helps small and mid-size businesses in Rwanda and across Africa work better and grow." },
 ];
 
 export default function About() {
-  const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
-    if (ref.current) observer.observe(ref.current);
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
-    return () => { observer.disconnect(); window.removeEventListener("resize", check); };
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.12 });
+    if (ref.current) obs.observe(ref.current);
+    return () => { window.removeEventListener("resize", check); obs.disconnect(); };
   }, []);
 
+  const ease = "cubic-bezier(.2,.7,.2,1)";
+  const rise = (d: number): React.CSSProperties => ({ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(18px)", transition: `all 0.9s ${ease} ${d}s` });
+
   return (
-    <section id="about" ref={ref} style={{
-      backgroundColor: "#ffffff",
-      padding: isMobile ? "60px 1.25rem" : "100px 2.5rem",
-      position: "relative", overflow: "hidden",
-    }}>
-
+    <section id="about" ref={ref} style={{ backgroundColor: "#F4F7FA", padding: isMobile ? "70px 1.25rem" : "110px 2.5rem" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-
-        <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease", marginBottom: "1rem" }}>
-          <span style={{ color: "#00B4A6", fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            Who We Are
-          </span>
-        </div>
-
-        <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.1s", marginBottom: "3rem" }}>
-          <h2 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: isMobile ? "2rem" : "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#0B1F3A", lineHeight: 1.4, letterSpacing: "0.01em" }}>
-            Powering Growth Across<br />
-            <span style={{ color: "#00B4A6" }}>African Business.</span>
-          </h2>
-        </div>
-
-        {/* Two column */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-          gap: isMobile ? "2rem" : "4rem",
-          alignItems: "center", marginBottom: "4rem",
-          opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.2s",
-        }}>
-          <div>
-            <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1.05rem", color: "rgba(11,31,58,0.7)", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-              Ivanexo Ltd is a Rwandan software company on a mission to empower small and medium businesses across Africa with technology that actually works for them.
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.15fr 1fr", gap: isMobile ? "3rem" : "5rem", alignItems: "start", marginBottom: "5rem" }}>
+          <div style={rise(0)}>
+            <h2 style={{ fontFamily: DISPLAY, fontSize: isMobile ? "2.1rem" : "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 500, color: "#0B1F3A", lineHeight: 1.12, letterSpacing: "-0.02em", marginBottom: "1.6rem" }}>
+              About Ivanexo
+            </h2>
+            <p style={{ fontFamily: BODY, fontSize: "1.05rem", color: "rgba(11,31,58,0.72)", lineHeight: 1.85, marginBottom: "1.25rem" }}>
+              Ivanexo is a software company in Kigali. We build websites, mobile apps and business software for clients, provide IT and technical support, and create products of our own.
             </p>
-            <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1.05rem", color: "rgba(11,31,58,0.7)", lineHeight: 1.8, marginBottom: "2rem" }}>
-              Our flagship product, Trackly, is a mobile business management app that helps SMEs track inventory, manage sales, monitor cashflow, and grow - available in English, Kinyarwanda, and French.
+            <p style={{ fontFamily: BODY, fontSize: "1.05rem", color: "rgba(11,31,58,0.72)", lineHeight: 1.85, marginBottom: "2rem" }}>
+              Our first product, Trackly, helps small businesses manage stock, sales, customers and cash from one mobile app.
             </p>
-            <a href="#trackly" style={{
-              display: "inline-block", backgroundColor: "#00B4A6", color: "#ffffff",
-              padding: "0.75rem 2rem", borderRadius: "6px",
-              fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "1rem",
-              textDecoration: "none", transition: "all 0.2s",
-            }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(0)"; }}>
+            <a href="#trackly" style={{ display: "inline-block", backgroundColor: "#0B1F3A", color: "#ffffff", padding: "0.85rem 1.9rem", borderRadius: 8, fontFamily: BODY, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}>
               See Trackly
             </a>
           </div>
 
-          {/* Stats — stunning on mobile */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-            {stats.map(s => (
-              <div key={s.label} style={{
-                background: "linear-gradient(135deg, #0B1F3A 0%, #132947 100%)",
-                borderRadius: "16px", padding: isMobile ? "1.5rem 1rem" : "1.75rem 1.5rem",
-                textAlign: "center",
-                boxShadow: "0 4px 20px rgba(11,31,58,0.15)",
-                border: "1px solid rgba(0,180,166,0.15)",
-                transition: "all 0.3s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,180,166,0.2)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "rgba(0,180,166,0.15)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(11,31,58,0.15)"; }}>
-                <div style={{
-                  fontFamily: '"Clash Display", sans-serif',
-                  fontSize: isMobile ? "2rem" : "2.4rem",
-                  fontWeight: 700, color: "#00B4A6",
-                  letterSpacing: "-0.02em", marginBottom: "0.4rem",
-                }}>
-                  {s.value}
+          <div>
+            {pillars.map((p, i) => (
+              <div key={p.title} style={{ borderTop: "1px solid rgba(11,31,58,0.14)", padding: "1.75rem 0", display: "flex", gap: "1.25rem", ...rise(0.15 + i * 0.15) }}>
+                <div style={{ width: 48, height: 48, flexShrink: 0, borderRadius: "50%", border: "1px solid rgba(0,180,166,0.45)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <p.Icon size={21} color="#00B4A6" strokeWidth={1.6} />
                 </div>
-                <div style={{
-                  fontFamily: '"Satoshi", sans-serif',
-                  fontSize: "0.75rem", color: "rgba(255,255,255,0.6)",
-                  fontWeight: 600, letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                }}>
-                  {s.label}
+                <div>
+                  <h3 style={{ fontFamily: DISPLAY, fontSize: "1.3rem", fontWeight: 500, color: "#0B1F3A", marginBottom: "0.5rem" }}>{p.title}</h3>
+                  <p style={{ fontFamily: BODY, fontSize: "0.98rem", color: "rgba(11,31,58,0.7)", lineHeight: 1.8 }}>{p.text}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Values */}
-        <div style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease 0.3s" }}>
-          <h3 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.5rem", fontWeight: 700, color: "#0B1F3A", marginBottom: "2rem" }}>Our Values</h3>
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)", gap: "1.25rem" }}>
-            {values.map(v => (
-              <div key={v.title} style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid rgba(11,31,58,0.1)",
-                borderRadius: "12px", padding: isMobile ? "1.25rem" : "1.5rem",
-                transition: "all 0.3s",
-                boxShadow: "0 2px 12px rgba(11,31,58,0.06)",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,180,166,0.15)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(11,31,58,0.1)"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(11,31,58,0.06)"; }}>
-                <div style={{ fontSize: isMobile ? "1.5rem" : "2rem", marginBottom: "0.75rem" }}>{v.icon}</div>
-                <h4 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "0.95rem", fontWeight: 700, color: "#0B1F3A", marginBottom: "0.5rem" }}>{v.title}</h4>
-                <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.82rem", color: "rgba(11,31,58,0.6)", lineHeight: 1.6 }}>{v.desc}</p>
-              </div>
-            ))}
-          </div>
+        <h3 style={{ fontFamily: DISPLAY, fontSize: "1.6rem", fontWeight: 500, color: "#0B1F3A", marginBottom: "2rem", ...rise(0.3) }}>How we work</h3>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)", gap: "2rem" }}>
+          {values.map((v, i) => (
+            <div key={v.title} style={{ borderLeft: "2px solid #00B4A6", paddingLeft: "1.1rem", ...rise(0.4 + i * 0.1) }}>
+              <v.Icon size={22} color="#00B4A6" strokeWidth={1.6} />
+              <h4 style={{ fontFamily: DISPLAY, fontSize: "1.1rem", fontWeight: 500, color: "#0B1F3A", margin: "0.75rem 0 0.5rem" }}>{v.title}</h4>
+              <p style={{ fontFamily: BODY, fontSize: "0.92rem", color: "rgba(11,31,58,0.68)", lineHeight: 1.75 }}>{v.text}</p>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );

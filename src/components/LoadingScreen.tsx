@@ -33,7 +33,7 @@ export default function LoadingScreen() {
         }} />
       </div>
 
-      <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", marginTop: "1rem", letterSpacing: "0.1em" }}>
+      <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.4)", marginTop: "1rem", letterSpacing: "0.1em" }}>
         POWERING BUSINESS WITH TECHNOLOGY
       </p>
 

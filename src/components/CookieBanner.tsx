@@ -1,3 +1,4 @@
+import { Cookie } from "lucide-react";
 ﻿import { useState, useEffect } from "react";
 
 export default function CookieBanner() {
@@ -27,10 +28,10 @@ export default function CookieBanner() {
       <style>{`@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }`}</style>
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}>
-        <span style={{ fontSize: "1.5rem" }}>🍪</span>
+        <Cookie size={26} color="#00B4A6" strokeWidth={1.6} />
         <div>
-          <h4 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.4rem" }}>We use cookies</h4>
-          <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
+          <h4 style={{ fontFamily: '"Jost", sans-serif', fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.4rem" }}>We use cookies</h4>
+          <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
             We use cookies to improve your experience. By using Ivanexo, you agree to our{" "}
             <a href="https://trackly.ivanexo.com/privacy" style={{ color: "#00B4A6", textDecoration: "none" }}>Privacy Policy</a>.
           </p>
@@ -41,7 +42,7 @@ export default function CookieBanner() {
         <button onClick={accept} style={{
           flex: 1, padding: "0.6rem", borderRadius: "8px",
           backgroundColor: "#00B4A6", color: "#ffffff", border: "none",
-          fontFamily: '"Satoshi", sans-serif', fontWeight: 700, fontSize: "0.9rem",
+          fontFamily: '"Manrope", sans-serif', fontWeight: 700, fontSize: "0.9rem",
           cursor: "pointer", transition: "all 0.2s",
         }}
           onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#008F84"; }}
@@ -52,7 +53,7 @@ export default function CookieBanner() {
           flex: 1, padding: "0.6rem", borderRadius: "8px",
           backgroundColor: "transparent", color: "rgba(255,255,255,0.6)",
           border: "1px solid rgba(255,255,255,0.15)",
-          fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.9rem",
+          fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.9rem",
           cursor: "pointer", transition: "all 0.2s",
         }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = "#00B4A6"; e.currentTarget.style.color = "#00B4A6"; }}

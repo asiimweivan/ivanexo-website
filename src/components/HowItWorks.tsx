@@ -29,13 +29,13 @@ export default function HowItWorks() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         <div style={{ textAlign: "center", marginBottom: "5rem", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease" }}>
-          <span style={{ color: "#00B4A6", fontFamily: '"Satoshi", sans-serif', fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "1rem" }}>
+          <span style={{ color: "#00B4A6", fontFamily: '"Manrope", sans-serif', fontWeight: 600, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase", display: "block", marginBottom: "1rem" }}>
             Simple Process
           </span>
-          <h2 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#0B1F3A", lineHeight: 1.2, marginBottom: "1.25rem" }}>
+          <h2 style={{ fontFamily: '"Jost", sans-serif', fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#0B1F3A", lineHeight: 1.2, marginBottom: "1.25rem" }}>
             Up and Running in <span style={{ color: "#00B4A6" }}>Minutes</span>
           </h2>
-          <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "1.1rem", color: "rgba(11,31,58,0.6)", maxWidth: 520, margin: "0 auto" }}>
+          <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "1.1rem", color: "rgba(11,31,58,0.6)", maxWidth: 520, margin: "0 auto" }}>
             No training needed. No tech skills required. Just download and start.
           </p>
         </div>
@@ -62,10 +62,10 @@ export default function HowItWorks() {
               }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = s.color; e.currentTarget.style.transform = "scale(1.1)"; }}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = s.color === "#00B4A6" ? "rgba(0,180,166,0.1)" : "rgba(240,165,0,0.1)"; e.currentTarget.style.transform = "scale(1)"; }}>
-                <span style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.3rem", fontWeight: 700, color: s.color }}>{s.number}</span>
+                <span style={{ fontFamily: '"Jost", sans-serif', fontSize: "1.3rem", fontWeight: 700, color: s.color }}>{s.number}</span>
               </div>
-              <h3 style={{ fontFamily: '"Clash Display", sans-serif', fontSize: "1.1rem", fontWeight: 700, color: "#0B1F3A", marginBottom: "0.6rem" }}>{s.title}</h3>
-              <p style={{ fontFamily: '"Satoshi", sans-serif', fontSize: "0.9rem", color: "rgba(11,31,58,0.6)", lineHeight: 1.7 }}>{s.desc}</p>
+              <h3 style={{ fontFamily: '"Jost", sans-serif', fontSize: "1.1rem", fontWeight: 700, color: "#0B1F3A", marginBottom: "0.6rem" }}>{s.title}</h3>
+              <p style={{ fontFamily: '"Manrope", sans-serif', fontSize: "0.9rem", color: "rgba(11,31,58,0.6)", lineHeight: 1.7 }}>{s.desc}</p>
             </div>
           ))}
         </div>
