@@ -47,7 +47,7 @@ const CSS = `
 @keyframes ixFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 `;
 
-function Constellation({ animated }: { animated: boolean }) {
+function Constellation({ animated, calm }: { animated: boolean; calm: boolean }) {
   return (
     <svg viewBox="0 0 520 540" role="img" aria-label="The Ivanexo IX mark connected to web and mobile apps, software, IT support, consulting and the Trackly product" style={{ width: "100%", height: "auto", display: "block", overflow: "visible" }}>
       <style>{CSS}</style>
@@ -59,21 +59,21 @@ function Constellation({ animated }: { animated: boolean }) {
         </clipPath>
       </defs>
 
-      <circle cx="260" cy="260" r="205" fill="none" stroke="#00B4A6" strokeOpacity="0.3" strokeWidth="1.5" strokeDasharray="1 10" strokeLinecap="round" className={animated ? "ix-spin" : undefined} style={{ transformOrigin: "260px 260px" }} />
+      <circle cx="260" cy="260" r="205" fill="none" stroke="#00B4A6" strokeOpacity="0.3" strokeWidth="1.5" strokeDasharray="1 10" strokeLinecap="round" className={animated && !calm ? "ix-spin" : undefined} style={{ transformOrigin: "260px 260px" }} />
       <circle cx="260" cy="260" r="150" fill="none" stroke="#ffffff" strokeOpacity="0.07" strokeWidth="1" />
 
       {NODES.map((n, i) => (
         <line key={n.label} x1="260" y1="260" x2={n.x} y2={n.y} stroke={n.color} strokeOpacity="0.5" strokeWidth="1.2" className={animated ? "ix-line" : undefined} style={animated ? { animationDelay: `${1.6 + i * 0.15}s` } : { strokeDasharray: "none" }} />
       ))}
 
-      {animated && NODES.map((n, i) => (
+      {animated && !calm && NODES.map((n, i) => (
         <circle key={"d" + n.label} r="2.8" fill={n.color} opacity="0">
           <set attributeName="opacity" to="1" begin={`${3 + i * 0.35}s`} fill="freeze" />
           <animateMotion dur={`${3.4 + i * 0.45}s`} begin={`${3 + i * 0.35}s`} repeatCount="indefinite" path={`M260,260 L${n.x},${n.y}`} />
         </circle>
       ))}
 
-      <g className={animated ? "ix-float" : undefined}>
+      <g className={animated && !calm ? "ix-float" : undefined}>
         <circle cx="260" cy="260" r="112" fill="#0B1F3A" stroke="#00B4A6" strokeOpacity="0.4" strokeWidth="1.2" />
         <g transform="translate(260 260) scale(0.235) translate(-641 -605)">
           <polygon points={MARK_I} fill="#ffffff" className={animated ? "ix-i" : undefined} />
@@ -157,7 +157,8 @@ function Services({ isMobile }: { isMobile: boolean }) {
 export default function Hero() {
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const animated = !prefersReducedMotion();
+  const animated = true;
+  const calm = prefersReducedMotion();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -206,7 +207,7 @@ export default function Hero() {
           </div>
 
           <div style={{ flex: 1, minWidth: 0, width: "100%", maxWidth: isMobile ? 400 : 540 }}>
-            <Constellation animated={animated} />
+            <Constellation animated={animated} calm={calm} />
           </div>
         </div>
       </section>
